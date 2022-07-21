@@ -1,5 +1,7 @@
 const request = require("request");
 const cities = ["Paris", "Bordeau", "Marseille", "Lyon"];
+var cats = [];
+var self = {};
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
@@ -26,7 +28,7 @@ function getCity() {
   return cities[getRandomInt(cities.length - 1)];
 }
 
-async function generateCat(callback) {
+async function generateCat(id, callback) {
   var picture = await getPicture();
 
   request("https://api.namefake.com/", { json: true }, (err, res, body) => {
@@ -34,6 +36,7 @@ async function generateCat(callback) {
       return console.log(err);
     }
     callback({
+      id: id,
       name: body.name,
       birthdate: body.birth_data,
       race: "cat",
@@ -45,6 +48,19 @@ async function generateCat(callback) {
   });
 }
 
-module.exports = {
-  generateCat,
-};
+self.generateCat = generateCat;
+
+self.catSpawning = (n) => {
+  for (var i = 0; i < n; i++) {
+    generateCat(i, (res) => {
+      cats.push(res);
+    });
+  }
+}
+
+self.listCat = (callback) => {
+  console.log(cats);
+  callback(cats);
+}
+
+module.exports = self;
