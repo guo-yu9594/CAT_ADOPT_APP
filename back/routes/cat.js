@@ -29,4 +29,12 @@ router.delete("/delete/:id", function (req, res, next) {
   });
 });
 
+router.put("/update/:id", function (req, res, next) {
+  const id = req.params.id;
+  console.log(req.body);
+  func.updateCat(id, req.body, (result) => {
+    res.send(result);
+  });
+});
+
 module.exports = router;

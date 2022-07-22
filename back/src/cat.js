@@ -71,4 +71,14 @@ self.deleteCat = (id, callback) => {
   callback(cats);
 }
 
+self.updateCat = (id, body, callback) => {
+  const indexOfObject = cats.findIndex(object => {
+    return object.id == id;
+  });
+  cats[indexOfObject] = body;
+  if ((typeof cats[indexOfObject].id) == 'string')
+  cats[indexOfObject].id = parseInt(cats[indexOfObject].id);
+  callback(cats);
+}
+
 module.exports = self;
