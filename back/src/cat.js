@@ -63,4 +63,12 @@ self.listCat = (callback) => {
   callback(cats);
 }
 
+self.deleteCat = (id, callback) => {
+  const indexOfObject = cats.findIndex(object => {
+    return object.id == id;
+  });
+  cats.splice(indexOfObject, 1);
+  callback(cats);
+}
+
 module.exports = self;

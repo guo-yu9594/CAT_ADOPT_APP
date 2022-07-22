@@ -22,4 +22,11 @@ router.get("/list", function (req, res, next) {
   });
 });
 
+router.delete("/delete/:id", function (req, res, next) {
+  const id = req.params.id;
+  func.deleteCat(id, (result) => {
+    res.send(result);
+  });
+});
+
 module.exports = router;
