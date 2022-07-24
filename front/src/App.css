@@ -1,14 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-*/
-
 .App-header {
   background-color: #282c34;
   min-height: 40vh;
@@ -19,15 +8,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-/*
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 .Cards-container
 {
@@ -40,11 +20,6 @@
 
 .cards {
   float: left;
-  /* display: grid; */
-  /* grid-auto-columns: auto;
-  grid-auto-rows: auto;
-  grid-template-columns: repeat(6, 1fr); */
-  /* display: flex; */
 }
 
 .card {

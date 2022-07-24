@@ -5,7 +5,7 @@ const Card = ({ details }) => {
   const elements = details.map(function (card) {
     return (
       <div className="card">
-        <img src={card} alt="Logo" />
+        <img src={card.photo} alt="Logo" />
       </div>
     );
   });
