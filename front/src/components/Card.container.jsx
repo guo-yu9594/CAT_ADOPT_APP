@@ -15,15 +15,15 @@ const getCatsCol = (cats) => {
   return arr;
 };
 
-const CardsContainer = ({ cats, handleOpen }) => {
+const CardsContainer = ({ cats, handleOpen, handleCardClick }) => {
   if (cats.length <= 0) return <div></div>;
 
   const catArray2d = getCatsCol(cats);
   const cardCols = catArray2d.map(function (col) {
-    return <Card details={col} />;
+    return <Card details={col} handleCardClick={handleCardClick} />;
   });
 
-  return <div className="Cards-container" onClick={handleOpen}>{cardCols}</div>;
+  return <div className="Cards-container" onClick={handleOpen} >{cardCols}</div>;
 };
 
 export default CardsContainer;

@@ -9,6 +9,10 @@
   color: white;
 }
 
+.test {
+  border-radius: 5%;
+}
+
 .Cards-container
 {
   margin: 4%;
