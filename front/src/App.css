@@ -29,21 +29,32 @@
   }
 } */
 
+.Cards-container
+{
+  margin: 4%;
+  padding-top: 2%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
 .cards {
-  position: relative;
-  margin: 2%;
+  float: left;
+  /* display: grid; */
+  /* grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(6, 1fr); */
+  /* display: flex; */
 }
 
 .card {
   max-width: 15vw;
   max-height: max-content;
-  float:left;
-  margin: 0.25vw;
+  margin: 0.5vw;
   border-radius: 5%;
 }
 
 .card :hover {
-  /* opacity: 50%; */
   filter: brightness(50%);
   transition-duration: 0.5s;
 }
