@@ -6,6 +6,10 @@ const Card = ({ details }) => {
     return (
       <div className="card">
         <img src={card.photo} alt="Logo" />
+        {/* <div className="Card-gradient"></div> */}
+        <div>
+          {card.name}
+        </div>
       </div>
     );
   });

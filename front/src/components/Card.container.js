@@ -18,7 +18,6 @@ const getCatsCol = (cats) => {
 
 const CardsContainer = ({ cats }) => {
   if (cats.length <= 0) return <div></div>;
-  console.log("gegege");
 
   const catArray2d = getCatsCol(cats);
   const cardCols = catArray2d.map(function (col) {
@@ -28,11 +27,6 @@ const CardsContainer = ({ cats }) => {
   return (
     <div className="Cards-container">
       {cardCols}
-      {/* <Card details={arr1} />
-      <Card details={arr2} />
-      <Card details={arr3} />
-      <Card details={arr4} />
-      <Card details={arr5} /> */}
     </div>
   );
 };
