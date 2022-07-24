@@ -9,14 +9,13 @@ const getCatsCol = (cats) => {
   var arr = [[], [], [], [], []];
 
   for (var j = 0; j < cats.length; ++j, ++i) {
-    if (i === nbCols)
-      i = 0;
+    if (i === nbCols) i = 0;
     arr[i].push(cats[j]);
   }
   return arr;
 };
 
-const CardsContainer = ({ cats }) => {
+const CardsContainer = ({ cats, handleOpen }) => {
   if (cats.length <= 0) return <div></div>;
 
   const catArray2d = getCatsCol(cats);
@@ -24,11 +23,7 @@ const CardsContainer = ({ cats }) => {
     return <Card details={col} />;
   });
 
-  return (
-    <div className="Cards-container">
-      {cardCols}
-    </div>
-  );
+  return <div className="Cards-container" onClick={handleOpen}>{cardCols}</div>;
 };
 
 export default CardsContainer;

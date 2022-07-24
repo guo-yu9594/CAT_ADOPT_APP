@@ -12,6 +12,12 @@ cd front
 npm start
 ```
 
+Dependance front:
+```bash
+npm install axios
+npm i @mui/material
+```
+
 To start back (port: 3001):
 ```bash
 cd back
