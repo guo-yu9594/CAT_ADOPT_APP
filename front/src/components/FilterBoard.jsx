@@ -19,7 +19,7 @@ const theme = createTheme({
 const FilterBoard = () => {
   return (
     <div className="Filter-board">
-      <center className="Filter-board-title">Tableau de filtre</center>
+      <center className="Filter-board-title">Tableau des filtres</center>
       <div>
         <center>
           <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />

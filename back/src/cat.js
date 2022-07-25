@@ -97,4 +97,12 @@ self.updateCat = (id, body, callback) => {
   callback(cats);
 }
 
+self.adoptCat = (id, callback) => {
+  const indexOfObject = cats.findIndex(object => {
+    return object.id == id;
+  });
+  cats[indexOfObject].status = "En cours d'adoption";
+  callback(cats[indexOfObject]);
+}
+
 module.exports = self;

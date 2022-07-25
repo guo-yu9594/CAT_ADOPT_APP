@@ -12,9 +12,7 @@ class App extends React.Component {
   };
 
   handleCardClick = (card) => {
-    console.log("Card clicked");
     this.setState({ onModal: card });
-    console.log(card);
   };
 
   getCatList = () => {
@@ -23,11 +21,41 @@ class App extends React.Component {
       .then((data) => {
         this.setState({ cats: data.data });
         this.setState({ catsListReady: true });
-        console.log("BACKED");
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  adoptCat = (cat) => {
+    axios
+      .post("http://localhost:3001/cat/adopt/" + cat.id)
+      .then((data) => {
+        const cats = [...this.state.cats];
+        const indexOfObject = cats.findIndex((object) => {
+          return object.id === cat.id;
+        });
+        cats[indexOfObject].status = data.data.status;
+        this.setState({ cats });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  placeFavorites = (cat) => {
+    const cats = [...this.state.cats];
+    const indexOfObject = cats.findIndex((object) => {
+      return object.id === cat.id;
+    });
+    const target = cats[indexOfObject];
+
+    if (target.name[target.name.length - 1] == '♥') {
+      cats[indexOfObject].name = target.name.slice(0, -2);
+      console.log(cats[indexOfObject].name)
+    }
+    else cats[indexOfObject].name = cats[indexOfObject].name + " ♥";
+    this.setState({ cats });
   };
 
   render() {
@@ -42,7 +70,11 @@ class App extends React.Component {
         <FilterBoard />
         <Body
           state={this.state}
-          functions={{ handleCardClick: this.handleCardClick }}
+          functions={{
+            handleCardClick: this.handleCardClick,
+            adoptCat: this.adoptCat,
+            placeFavorites: this.placeFavorites,
+          }}
         />
       </div>
     );

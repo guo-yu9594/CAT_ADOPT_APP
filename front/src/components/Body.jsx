@@ -10,8 +10,11 @@ const Body = ({ state, functions }) => {
 
   return (
     <div>
-      <CardsContainer cats={state.cats} handleOpen={handleOpen} handleCardClick={functions.handleCardClick}/>
-      <MyModal handleClose={handleClose} open={open} details={state.onModal}/>
+      <CardsContainer cats={state.cats} handleOpen={handleOpen} handleCardClick={functions.handleCardClick} />
+      <MyModal handleClose={handleClose} open={open} state={state} actions={{
+        adoptCat: functions.adoptCat,
+        placeFavorites: functions.placeFavorites
+      }} /> 
     </div>
   );
 };

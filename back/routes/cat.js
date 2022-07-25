@@ -42,4 +42,12 @@ router.put("/update/:id", function (req, res, next) {
   });
 });
 
+router.post("/adopt/:id", function (req, res, next) {
+  const id = req.params.id;
+  func.adoptCat(id, (result) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(result);
+  });
+});
+
 module.exports = router;

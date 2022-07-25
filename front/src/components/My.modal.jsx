@@ -15,7 +15,7 @@ const style = {
   border: 0
 };
 
-const MyModal = ({ handleClose, open, details }) => {
+const MyModal = ({ handleClose, open, state, actions }) => {
   return (
     <Modal
       open={open}
@@ -25,7 +25,7 @@ const MyModal = ({ handleClose, open, details }) => {
     >
       <Box sx={style}>
         <center>
-          <MediaCard details={details} />
+          <MediaCard details={state.onModal} actions={actions} />
         </center>
         {/* <Typography id="modal-modal-title" variant="h6" component="h2">
           Text in a modal

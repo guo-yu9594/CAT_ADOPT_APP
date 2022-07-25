@@ -5,8 +5,28 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { createTheme } from '@mui/material/styles'
+import { red, grey } from '@mui/material/colors';
 
-const MediaCard = ({ details }) => {
+const favoriteBtnTitle = (details) => {
+  if (details.name[details.name.length - 1] == '♥')
+    return 'Retirer des favoris';
+  else
+    return 'Mettre en favoris';
+}
+
+const getAdoptButton = (details, actions) => {
+  const redTheme = createTheme({ palette: { primary: grey } })
+
+  if (details.status === 'En cours d\'adoption')
+    return <Button theme={redTheme} size="small" onClick={() => actions.adoptCat(details)}>Réservé</Button>
+  else
+    return <Button size="small" onClick={() => actions.adoptCat(details)}>Adopter</Button>
+}
+
+const MediaCard = ({ details, actions }) => {
+  const redTheme = createTheme({ palette: { primary: red } })
+
   return (
     <Card >
       <CardMedia
@@ -31,8 +51,8 @@ const MediaCard = ({ details }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Adopter</Button>
-        <Button size="small">Mettre en pFavoris</Button>
+        {getAdoptButton(details, actions)}
+        <Button theme={redTheme} size="small" onClick={() => actions.placeFavorites(details)}>{favoriteBtnTitle(details)}</Button>
       </CardActions>
     </Card>
   );

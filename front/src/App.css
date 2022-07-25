@@ -26,14 +26,16 @@
 
 .Filter-board {
   position: relative;
-  height: 150px;
+  height: 17vh;
   background-color: antiquewhite;
   position:sticky;
   top: 0px;
 }
 
 .Filter-board-title {
-  padding: 20px;
+  padding-top: 3vh;
+  padding-bottom: 1vh;
+  /* padding: 20px; */
   font-size: large;
 }
 
