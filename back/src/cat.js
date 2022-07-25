@@ -1,5 +1,7 @@
 const request = require("request");
 const cities = ["Paris", "Bordeau", "Marseille", "Lyon"];
+const genders = ["Male", "Female"];
+const races = ["Persan", "Maine coon", "British shorthair", "Bengal", "Norvégien", "Sibérien"];
 var cats = [];
 var self = {};
 
@@ -24,8 +26,21 @@ function getPicture() {
   });
 }
 
+function randomElementFromArray(arr)
+{
+  return arr[getRandomInt(arr.length - 1)];
+}
+
 function getCity() {
-  return cities[getRandomInt(cities.length - 1)];
+  return randomElementFromArray(cities);
+}
+
+function getGender() {
+  return randomElementFromArray(genders);
+}
+
+function getRace() {
+  return randomElementFromArray(races);
 }
 
 async function generateCat(id, callback) {
@@ -39,7 +54,8 @@ async function generateCat(id, callback) {
       id: id,
       name: body.name,
       birthdate: body.birth_data,
-      race: "cat",
+      gender: getGender(),
+      race: getRace(),
       city: getCity(),
       description: body.company,
       photo: picture,

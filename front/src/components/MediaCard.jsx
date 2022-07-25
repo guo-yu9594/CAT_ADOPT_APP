@@ -22,12 +22,17 @@ const MediaCard = ({ details }) => {
           {details.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {details.description}
+          Race : {details.race} <br></br>
+          Sexe : {details.gender} <br></br>
+          Date de naissance : {details.birthdate} <br></br>
+          Ville : {details.city} <br></br>
+          Status : {details.status} <br></br>
+          Description : {details.description} <br></br>
         </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Adopter</Button>
-        <Button size="small">Mettre en Favoris</Button>
+        <Button size="small">Mettre en pFavoris</Button>
       </CardActions>
     </Card>
   );
