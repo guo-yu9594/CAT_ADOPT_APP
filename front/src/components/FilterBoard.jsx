@@ -27,8 +27,8 @@ const FilterBoard = () => {
           <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
           <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
           <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
-          <Button theme={theme} sx={{ m: 3, 'margin-left': 50, }} variant="contained">Actualiser</Button>
-          <Button theme={theme} sx={{ m: 3, 'margin-left': 10, }} variant="outlined">Remettre par défaut</Button>
+          <Button theme={theme} sx={{ m: 2.5, 'margin-left': 50, }} variant="contained">Actualiser</Button>
+          <Button theme={theme} sx={{ m: 2.5, 'margin-left': 10, }} variant="outlined">Remettre par défaut</Button>
         </center>
       </div>
     </div>

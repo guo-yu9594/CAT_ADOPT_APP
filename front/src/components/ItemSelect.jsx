@@ -23,7 +23,7 @@ const ItemSelect = ({ title, item }) => {
   };
 
   return (
-    <FormControl variant="standard" sx={{ m: 1.5, minWidth: 150, 'margin-left': 40, 'margin-right': 40 }}>
+    <FormControl variant="standard" sx={{ m: 1, minWidth: 150, 'margin-left': 40, 'margin-right': 40 }}>
       <InputLabel id="demo-simple-select-standard-label">{title}</InputLabel>
       <Select
         labelId="demo-simple-select-standard-label"

@@ -28,6 +28,8 @@
   position: relative;
   height: 150px;
   background-color: antiquewhite;
+  position:sticky;
+  top: 0px;
 }
 
 .Filter-board-title {
@@ -49,7 +51,7 @@
 }
 
 .card {
-  position: relative;
+  /* position: relative; */
   max-width: 15vw;
   max-height: max-content;
   margin: 0.5vw;
@@ -63,11 +65,15 @@
   transition-duration: 0.5s;
 }
 
+.Card-name {
+  margin-bottom: 3vh;
+}
+
 .card div {
-  margin-bottom: 5%;
-  bottom: 0;
-  position: absolute;
-  color: white;
+  /* position: absolute; */
+  /* margin-bottom: 5%;
+  bottom: 0; */
+  color: black;
 }
 
 .card img {
