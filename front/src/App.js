@@ -7,12 +7,13 @@ class App extends React.Component {
   state = {
     cats: [],
     catsListReady: false,
-    onModal: -1,
+    onModal: null,
   };
 
   handleCardClick = (card) => {
     console.log("Card clicked");
-    this.setState({ onModal: card.id });
+    this.setState({ onModal: card });
+    console.log(card);
   };
 
   getCatList = () => {
@@ -34,10 +35,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Adopte un chat</h1>
+          <div className="Header-img">
+          </div>
+            <h1>Adopte un chat</h1>
         </header>
         <Body
-          cats={this.state.cats}
+          state={this.state}
           functions={{ handleCardClick: this.handleCardClick }}
         />
       </div>

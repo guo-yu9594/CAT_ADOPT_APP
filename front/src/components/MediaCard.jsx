@@ -6,22 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function MediaCard() {
+const MediaCard = ({ details }) => {
   return (
     <Card >
       <CardMedia
         component="img"
-        width="fit-content"
-        image="https://cdn.futura-sciences.com/buildsv6/images/wide1920/a/0/f/a0fc73919d_50166390_chaton.jpg"
+        width="300px"
+        height="400px"
+        image={details.photo}
         alt="green iguana"
+        display="block"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {details.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {details.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -31,3 +32,5 @@ export default function MediaCard() {
     </Card>
   );
 }
+
+export default MediaCard
