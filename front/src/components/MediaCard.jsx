@@ -18,8 +18,8 @@ const favoriteBtnTitle = (details) => {
 const getAdoptButton = (details, actions) => {
   const redTheme = createTheme({ palette: { primary: grey } })
 
-  if (details.status === 'En cours d\'adoption')
-    return <Button theme={redTheme} size="small" onClick={() => actions.adoptCat(details)}>Réservé</Button>
+  if (details.status !== 'Adoptable')
+    return <Button theme={redTheme} size="small" onClick={() => actions.adoptCat(details)}>Indisponible</Button>
   else
     return <Button size="small" onClick={() => actions.adoptCat(details)}>Adopter</Button>
 }

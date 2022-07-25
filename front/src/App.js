@@ -9,6 +9,8 @@ class App extends React.Component {
     cats: [],
     catsListReady: false,
     onModal: null,
+    filter: [],
+    filterReady: false,
   };
 
   handleCardClick = (card) => {
@@ -19,13 +21,23 @@ class App extends React.Component {
     axios
       .get("http://localhost:3001/cat/list")
       .then((data) => {
-        this.setState({ cats: data.data });
-        this.setState({ catsListReady: true });
+        this.setState({ cats: data.data, catsListReady: true });
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  getFilterList = () => {
+    axios
+      .get("http://localhost:3001/cat/filter")
+      .then((data) => {
+        this.setState({ filter: data.data, filterReady: true});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   adoptCat = (cat) => {
     axios
@@ -59,7 +71,10 @@ class App extends React.Component {
   };
 
   render() {
-    if (this.state.catsListReady === false) this.getCatList();
+    if (this.state.catsListReady === false)
+      this.getCatList();
+    if (this.state.filterReady === false)
+      this.getFilterList();
 
     return (
       <div className="App">
@@ -67,7 +82,7 @@ class App extends React.Component {
           <div className="Header-img"></div>
           <h1>Adopte un chat</h1>
         </header>
-        <FilterBoard />
+        <FilterBoard filter={this.state.filter}/>
         <Body
           state={this.state}
           functions={{

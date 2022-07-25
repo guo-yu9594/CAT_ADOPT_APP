@@ -16,17 +16,19 @@ const theme = createTheme({
   },
 });
 
-const FilterBoard = () => {
+const createSelects = (filter) => {
+  return (filter.map(function (category) {
+    return <ItemSelect title={category.title} item={category.items} />
+  }));
+}
+
+const FilterBoard = ({ filter }) => {
   return (
     <div className="Filter-board">
       <center className="Filter-board-title">Tableau des filtres</center>
       <div>
         <center>
-          <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
-          <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
-          <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
-          <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
-          <ItemSelect title={"bruf"} item={[10, 20, 30, 40, 50]} />
+          {createSelects(filter)}
           <Button theme={theme} sx={{ m: 2.5, 'margin-left': 50, }} variant="contained">Actualiser</Button>
           <Button theme={theme} sx={{ m: 2.5, 'margin-left': 10, }} variant="outlined">Remettre par défaut</Button>
         </center>

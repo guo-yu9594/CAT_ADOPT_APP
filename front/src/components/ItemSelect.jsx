@@ -33,7 +33,7 @@ const ItemSelect = ({ title, item }) => {
         label={title}
       >
         <MenuItem value="">
-          <em>None</em>
+          <em>Aucun</em>
         </MenuItem>
         {convertItem(item)}
       </Select>
