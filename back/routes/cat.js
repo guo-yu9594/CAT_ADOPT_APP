@@ -1,7 +1,5 @@
 var express = require("express");
 var router = express.Router();
-const request = require("request");
-const cities = ["Paris", "Bordeau", "Marseille", "Lyon"];
 const func = require("../src/cat");
 func.catSpawning(30);
 
@@ -20,6 +18,13 @@ router.get("/random", function (req, res, next) {
 
 router.get("/list", function (req, res, next) {
   func.listCat((result) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(result);
+  });
+});
+
+router.get("/filter", function (req, res, next) {
+  func.getFilters((result) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.send(result);
   });

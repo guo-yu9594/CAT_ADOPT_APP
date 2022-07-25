@@ -4,6 +4,28 @@ const genders = ["Male", "Female"];
 const races = ["Persan", "Maine coon", "British shorthair", "Bengal", "Norvégien", "Sibérien"];
 var cats = [];
 var self = {};
+const filters = {
+  races: {
+    title: 'Race',
+    items: races
+  },
+  cities: {
+    title: 'Ville',
+    items: cities
+  },
+  genders: {
+    title: 'Sexe',
+    items: genders
+  },
+  ages: {
+    title: 'Âge',
+    items: ['moins de 1', '1 à 3', '4 à 6', '7 à 9', 'plus de 10']
+  },
+  status: {
+    title: 'Status',
+    items: ['Adoptable', 'Demande en cours', 'Adopté']
+  }
+}
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
@@ -59,7 +81,7 @@ async function generateCat(id, callback) {
       city: getCity(),
       description: body.company,
       photo: picture,
-      status: "À adopter",
+      status: "Adoptable",
     });
   });
 }
@@ -75,8 +97,11 @@ self.catSpawning = (n) => {
 }
 
 self.listCat = (callback) => {
-  console.log(cats);
   callback(cats);
+}
+
+self.getFilters = (callback) => {
+  callback(filters);
 }
 
 self.deleteCat = (id, callback) => {
@@ -101,7 +126,7 @@ self.adoptCat = (id, callback) => {
   const indexOfObject = cats.findIndex(object => {
     return object.id == id;
   });
-  cats[indexOfObject].status = "En cours d'adoption";
+  cats[indexOfObject].status = 'Demande en cours';
   callback(cats[indexOfObject]);
 }
 
