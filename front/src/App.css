@@ -24,9 +24,20 @@
   position: absolute;
 }
 
+.Filter-board {
+  position: relative;
+  height: 150px;
+  background-color: antiquewhite;
+}
+
+.Filter-board-title {
+  padding: 20px;
+  font-size: large;
+}
+
 .Cards-container
 {
-  margin: 4%;
+  margin: 1%;
   padding-top: 2%;
   height: fit-content;
   display: flex;

@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import Body from "./components/Body";
+import FilterBoard from "./components/FilterBoard";
 
 class App extends React.Component {
   state = {
@@ -35,10 +36,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="Header-img">
-          </div>
-            <h1>Adopte un chat</h1>
+          <div className="Header-img"></div>
+          <h1>Adopte un chat</h1>
         </header>
+        <FilterBoard />
         <Body
           state={this.state}
           functions={{ handleCardClick: this.handleCardClick }}
