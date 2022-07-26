@@ -30,6 +30,13 @@ router.get("/filter", function (req, res, next) {
   });
 });
 
+router.post("/filterlist", function (req, res, next) {
+  func.getFilteredList(req.body, (result) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(result);
+  });
+});
+
 router.delete("/delete/:id", function (req, res, next) {
   const id = req.params.id;
   func.deleteCat(id, (result) => {

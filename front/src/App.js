@@ -13,6 +13,18 @@ class App extends React.Component {
     filterReady: false,
   };
 
+  applyFilter = () => {
+    console.log(this.state.filter);
+    axios
+      .post("http://localhost:3001/cat/filterlist", this.state.filter)
+      .then((data) => {
+        this.setState({ cats: data.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   handleCardClick = (card) => {
     this.setState({ onModal: card });
   };
@@ -82,7 +94,7 @@ class App extends React.Component {
           <div className="Header-img"></div>
           <h1>Adopte un chat</h1>
         </header>
-        <FilterBoard filter={this.state.filter}/>
+        <FilterBoard filter={this.state.filter} applyFilter={this.applyFilter}/>
         <Body
           state={this.state}
           functions={{

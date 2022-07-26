@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 import "../App.css";
 
 
-const ItemSelect = ({ title, item }) => {
+const ItemSelect = ({ category }) => {
   const [age, setAge] = React.useState('');
 
   const convertItem = (items) => {
@@ -20,22 +20,24 @@ const ItemSelect = ({ title, item }) => {
 
   const handleChange = (event) => {
     setAge(event.target.value);
+    console.log(category.target);
+    category.target = event.target.value;
   };
 
   return (
     <FormControl variant="standard" sx={{ m: 1, minWidth: 150, 'margin-left': 40, 'margin-right': 40 }}>
-      <InputLabel id="demo-simple-select-standard-label">{title}</InputLabel>
+      <InputLabel id="demo-simple-select-standard-label">{category.title}</InputLabel>
       <Select
         labelId="demo-simple-select-standard-label"
         id="demo-simple-select-standard"
         value={age}
         onChange={handleChange}
-        label={title}
+        label={category.title}
       >
         <MenuItem value="">
           <em>Aucun</em>
         </MenuItem>
-        {convertItem(item)}
+        {convertItem(category.items)}
       </Select>
     </FormControl>
   );
