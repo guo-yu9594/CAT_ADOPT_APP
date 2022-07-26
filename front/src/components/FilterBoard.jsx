@@ -22,6 +22,13 @@ const createSelects = (filter) => {
   }));
 }
 
+const resetFilterTarget = (filter, applyFilter) => {
+  for (var i = 0; i < filter.length; ++i) {
+    filter[i].target = "";
+  }
+  applyFilter();
+}
+
 const FilterBoard = ({ filter, applyFilter }) => {
   return (
     <div className="Filter-board">
@@ -30,7 +37,7 @@ const FilterBoard = ({ filter, applyFilter }) => {
         <center>
           {createSelects(filter)}
           <Button theme={theme} sx={{ m: 2.5, 'margin-left': 50, }} variant="contained" onClick={applyFilter}>Actualiser</Button>
-          <Button theme={theme} sx={{ m: 2.5, 'margin-left': 10, }} variant="outlined">Remettre par défaut</Button>
+          <Button theme={theme} sx={{ m: 2.5, 'margin-left': 10, }} variant="outlined" onClick={() => resetFilterTarget(filter, applyFilter)}>Réinitialiser</Button>
         </center>
       </div>
     </div>
