@@ -1,8 +1,5 @@
 # CAT-ADOPT-APP
 
-![alt text](https://www.datocms-assets.com/45470/1631110818-logo-react-js.png)
-![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png)
-
 Dependance back:
 ```bash
 cd back
