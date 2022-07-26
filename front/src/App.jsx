@@ -74,7 +74,7 @@ class App extends React.Component {
     });
     const target = cats[indexOfObject];
 
-    if (target.name[target.name.length - 1] == '♥') {
+    if (target.name[target.name.length - 1] === '♥') {
       cats[indexOfObject].name = target.name.slice(0, -2);
       console.log(cats[indexOfObject].name)
     }

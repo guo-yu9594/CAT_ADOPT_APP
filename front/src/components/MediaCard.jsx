@@ -9,7 +9,7 @@ import { createTheme } from '@mui/material/styles'
 import { red, grey } from '@mui/material/colors';
 
 const favoriteBtnTitle = (details) => {
-  if (details.name[details.name.length - 1] == '♥')
+  if (details.name[details.name.length - 1] === '♥')
     return 'Retirer des favoris';
   else
     return 'Mettre en favoris';
@@ -44,7 +44,7 @@ const MediaCard = ({ details, actions }) => {
         <Typography variant="body2" color="text.secondary">
           Race : {details.race} <br></br>
           Sexe : {details.gender} <br></br>
-          Date de naissance : {details.birthdate} <br></br>
+          Date de naissance : {details.birthdate} ({details.age} ans)<br></br>
           Ville : {details.city} <br></br>
           Status : {details.status} <br></br>
           Description : {details.description} <br></br>

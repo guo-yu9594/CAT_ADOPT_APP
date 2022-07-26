@@ -1,6 +1,6 @@
 import React from "react";
 import CardsContainer from "./Card.container";
-import MyModal from "./My.modal";
+import MyModal from "./MyModal";
 import "../App.css";
 
 const Body = ({ state, functions }) => {

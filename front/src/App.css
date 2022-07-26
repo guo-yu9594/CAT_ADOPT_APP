@@ -35,7 +35,6 @@
 .Filter-board-title {
   padding-top: 3vh;
   padding-bottom: 1vh;
-  /* padding: 20px; */
   font-size: large;
 }
 
@@ -53,7 +52,6 @@
 }
 
 .card {
-  /* position: relative; */
   max-width: 15vw;
   max-height: max-content;
   margin: 0.5vw;
@@ -72,9 +70,6 @@
 }
 
 .card div {
-  /* position: absolute; */
-  /* margin-bottom: 5%;
-  bottom: 0; */
   color: black;
 }
 
