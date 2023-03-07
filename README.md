@@ -6,27 +6,24 @@
 
 Dependance back:
 ```bash
-cd back
-npm install express
-npm install request
-npm install cors
+express, request, cors
 ```
 
 Dependance front:
 ```bash
-cd front
-npm install axios
-npm i @mui/material
+axios, @mui/material
 ```
 
 To start front (port: 3000):
 ```bash
 cd front
+npm install
 npm start
 ```
 
 To start back (port: 3001):
 ```bash
 cd back
+npm install
 DEBUG=myapp:* npm start
 ```
